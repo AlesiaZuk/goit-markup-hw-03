@@ -47,11 +47,32 @@ body {
 /* Шапка страницы */
 
 .page-header {
+  display: flex;
+  align-items: center;
   background: var(--primary-background);
 }
 
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
 /* Логотип в хедере и футере*/
-.page-header .logo,
+
+.page-header .logo {
+  display: block;
+  margin-right: 93px;
+  padding-top: 24px;
+  padding-bottom: 25px;
+
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: var(--black-color);
+}
 .footer .logo {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
@@ -70,7 +91,20 @@ body {
 }
 
 /* Навигация в хедере */
+.site-nav {
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+
+.site-nav .item:not(:last-child) {
+  margin-right: 50px;
+}
 .site-nav .link {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
   color: var(--title-text-color);
 }
 .site-nav .link:hover,
@@ -82,9 +116,26 @@ body {
 }
 
 /* Контакты в хедере */
+.site-contact {
+  display: flex;
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: auto;
+}
+
+.site-contact .item:not(:last-child) {
+  margin-right: 50px;
+}
+
 .site-contact .link {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
   color: var(--primary-text-color);
 }
+
 .site-contact .link:hover,
 .site-contact .link:focus {
   color: var(--accent-color);
