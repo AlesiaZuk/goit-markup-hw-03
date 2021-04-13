@@ -10,14 +10,56 @@
   --primary-background: #fff;
   --second-background: #f5f4fa;
   --hero-footer-background: #2f303a;
+
+  --section-padding: 94px;
+  --title-margin: 50px;
+  --element-padding: 30px;
+  --logo-margin: 93px;
+  --hero-padding: 200px;
+  --header-padding: 32px;
+  --header-logo-top-padding: 24px;
+  --header-logo-bottom-padding: 25px;
+  --feature-title-margin: 10px;
+  --footer-padding: 60px;
+  --footer-logo-margin: 20px;
+  --footer-list-margin: 9px;
+  --button-margin: 8px;
+  --portfolio-card-title-margin: 4px;
 }
 
 /* Общие правила */
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 body {
   font-family: 'Roboto', sans-serif;
   color: var(--primary-text-color);
   background-color: var(--primary-background);
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0px;
+}
+
+.container {
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .list {
@@ -38,32 +80,41 @@ body {
 }
 
 .button {
+  border: 0px solid transparent;
+  border-radius: 4px;
+
   font-family: inherit;
   font-size: 16px;
   text-align: center;
   cursor: pointer;
 }
 
+.img {
+  display: block;
+  max-width: 100%;
+}
 /* Шапка страницы */
 
 .page-header {
-  display: flex;
-  align-items: center;
+  border-bottom: 1px solid #ececec;
+
   background: var(--primary-background);
 }
 
-.main-nav {
+.flex-center {
   display: flex;
   align-items: center;
 }
+.main-nav {
+  display: flex;
+}
 
 /* Логотип в хедере и футере*/
-
 .page-header .logo {
-  display: block;
-  margin-right: 93px;
-  padding-top: 24px;
-  padding-bottom: 25px;
+  display: inline-block;
+  margin-right: var(--logo-margin);
+  padding-top: var(--header-logo-top-padding);
+  padding-bottom: var(--header-logo-bottom-padding);
 
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
@@ -71,42 +122,32 @@ body {
   line-height: 1.2;
   letter-spacing: 0.03em;
   text-decoration: none;
+
   color: var(--black-color);
 }
-.footer .logo {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
-  text-decoration: none;
-  color: var(--black-color);
-}
-.page-header .logo-blue,
-.footer .logo-blue {
+
+.page-header .logo-blue {
   color: var(--accent-color);
-}
-.footer .logo {
-  color: var(--primary-background);
 }
 
 /* Навигация в хедере */
 .site-nav {
   display: flex;
-  margin-top: 0px;
-  margin-bottom: 0px;
   padding-left: 0px;
 }
 
 .site-nav .item:not(:last-child) {
-  margin-right: 50px;
+  margin-right: var(--title-margin);
 }
+
 .site-nav .link {
-  display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  display: inline-block;
+  padding-top: var(--header-padding);
+  padding-bottom: var(--header-padding);
+
   color: var(--title-text-color);
 }
+
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);
@@ -119,19 +160,17 @@ body {
 .site-contact {
   display: flex;
   padding-left: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
   margin-left: auto;
 }
 
 .site-contact .item:not(:last-child) {
-  margin-right: 50px;
+  margin-right: var(--title-margin);
 }
 
 .site-contact .link {
-  display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  display: inline-block;
+  padding-top: var(--header-padding);
+  padding-bottom: var(--header-padding);
 
   color: var(--primary-text-color);
 }
@@ -144,10 +183,18 @@ body {
 /* Секция Hero */
 
 .page-hero {
+  text-align: center;
+
   background: var(--hero-footer-background);
 }
 
+.page-hero .container {
+  padding-top: var(--hero-padding);
+  padding-bottom: var(--hero-padding);
+}
 .page-hero .title {
+  margin-bottom: var(--element-padding);
+
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
@@ -158,6 +205,8 @@ body {
 }
 
 .page-hero .button {
+  padding: 10px 32px;
+
   font-weight: 700;
   line-height: 1.87;
   letter-spacing: 0.06em;
@@ -166,6 +215,11 @@ body {
 }
 
 /* Секция особенности */
+
+.features {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
 
 .visually-hidden {
   position: absolute !important;
@@ -178,7 +232,18 @@ body {
   overflow: hidden;
 }
 
+.feature-list {
+  display: flex;
+  padding-left: 0;
+}
+
+.feature-list .item:not(:last-child) {
+  margin-right: var(--element-padding);
+}
+
 .feature-title {
+  margin-bottom: var(--feature-title-margin);
+
   font-size: 14px;
   line-height: 1.14;
   text-transform: uppercase;
@@ -192,34 +257,75 @@ body {
 
 /* Секция Чем мы занимаемся */
 
+.work {
+  padding-bottom: var(--section-padding);
+}
+
+.work-list {
+  display: flex;
+  padding-left: 0;
+}
+
 .work-title {
+  margin-bottom: var(--title-margin);
+
   font-size: 36px;
   line-height: 1.17;
   text-align: center;
+}
+
+.work-list .item:not(:last-child) {
+  margin-right: var(--element-padding);
 }
 
 /* Cекция наша команда */
 
 .team {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+
   background: var(--second-background);
 }
 
-.team-сard {
-  background: var(--primary-background);
-  text-align: center;
-}
+.team-title {
+  margin-bottom: var(--title-margin);
 
-.team-title.title {
   font-size: 36px;
   line-height: 1.17;
   text-align: center;
 }
 
-.team-card-title.title {
+.team-list {
+  display: flex;
+  padding-left: 0px;
+}
+
+.team-сard {
+  text-align: center;
+}
+
+.team-сard:not(:last-child) {
+  margin-right: var(--element-padding);
+}
+
+.lower-card {
+  padding-top: var(--element-padding);
+  padding-bottom: var(--element-padding);
+
+  border: 1px solid transparent;
+  border-radius: 0px 0px 4px 4px;
+
+  background: var(--primary-background);
+}
+
+.team-card-title {
+  margin-bottom: var(--feature-title-margin);
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
 }
+
 .team-card-text {
   font-size: 16px;
   line-height: 1.19;
@@ -229,17 +335,51 @@ body {
 /* Footer cтраницы */
 
 .footer {
+  padding-top: var(--footer-padding);
+  padding-bottom: var(--footer-padding);
+
   background-color: var(--hero-footer-background);
 }
+
+.footer .logo {
+  display: inline-block;
+  margin-bottom: var(--footer-logo-margin);
+
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+
+  color: var(--black-color);
+  color: var(--primary-background);
+}
+
+.footer .logo-blue {
+  color: var(--accent-color);
+}
+
 .footer .text {
   color: var(--primary-background);
 }
-.footer-address.text {
+
+.footer-address {
+  margin-bottom: var(--footer-list-margin);
+
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+}
+
+.footer-list {
+  padding-left: 0;
+}
+
+.footer-list .item:not(:last-child) {
+  margin-bottom: var(--footer-list-margin);
 }
 
 .footer .link {
@@ -249,35 +389,79 @@ body {
   letter-spacing: 0.03em;
   color: var(--footer-link-color);
 }
+
 .footer .link:hover,
 .footer .link:focus {
   color: var(--accent-color);
 }
 
-/* Страница Портфолио */
+.footer .link:not(:last-child) {
+  margin-bottom: var(--footer-list-margin);
+}
 
-.portfolio-card {
-  background-color: var(--primary-background);
+/* Страница Портфолио */
+.portfolio {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 /* Cписок кнопок- фильтр */
+.portfolio-filter {
+  display: flex;
+  margin-bottom: var(--title-margin);
+  padding-left: 0px;
+  justify-content: center;
+}
+
+.portfolio-filter .item:not(:last-child) {
+  margin-right: var(--button-margin);
+}
+
 .portfolio-filter .button {
+  padding: 6px 22px;
   font-weight: 500;
   line-height: 1.62;
   letter-spacing: 0.03em;
+
   color: var(--title-text-color);
-  background-color: #f5f4fa;
+  background-color: var(--second-background);
 }
+
 .portfolio-filter .button:hover,
 .portfolio-filter .button:focus {
   color: var(--primary-background);
   background-color: var(--accent-color);
 }
+
 /* Карточки портфолио */
+
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+  margin-left: -30px;
+  margin-top: -30px;
+}
+.portfolio-card {
+  margin-left: var(--element-padding);
+  margin-top: var(--element-padding);
+  flex-basis: calc((100% - 90px) / 3);
+
+  background-color: var(--primary-background);
+}
+
+.portfolio-lower-card {
+  padding: 20px 24px;
+  border: 1px solid #eeeeee;
+  border-top-color: transparent;
+}
+
 .portfolio-card-title {
+  margin-bottom: var(--portfolio-card-title-margin);
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
 }
+
 .portfolio-card-text {
   font-size: 16px;
   line-height: 1.87;
